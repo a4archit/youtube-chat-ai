@@ -32,19 +32,32 @@ class YouTubeVideoChatAI:
 
         ## loading secret keys
         load_dotenv()
+        if verbose:
+            print("Secret Keys Loaded!")
 
-        ## loading models
+        ## loading modelsif verbose:
         self.embeddings = self._load_embedding_model()
+        if verbose:
+            print("Embedding model loaded!")
+        
         self.llm = self._load_llm()
+        if verbose:
+            print("LLM loaded!")
 
         ## fetching transcript
         self.transcript = self._fetch_transcript(video_id)
+        if verbose:
+            print("Transcript fetched!")
 
         ## processing retriever
         self.retriever = self._load_retriever(self.transcript, self.embeddings)
+        if verbose:
+            print("Retriver loaded!")
 
         ## loading template
         self.template = self._load_template()
+        if verbose:
+            print("Template loaded!")
 
 
 
