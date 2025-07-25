@@ -45,9 +45,12 @@ class YouTubeVideoChatAI:
             print("LLM loaded!")
 
         ## fetching transcript
-        self.transcript = self._fetch_transcript(video_id)
-        if verbose:
-            print("Transcript fetched!")
+        try:
+            self.transcript = self._fetch_transcript(video_id)
+            if verbose:
+                print("Transcript fetched!")
+        except Exception as e:
+            print(f"Error occurring while fetching all transcripts: {e}")
 
         ## processing retriever
         self.retriever = self._load_retriever(self.transcript, self.embeddings)
