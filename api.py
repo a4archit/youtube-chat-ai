@@ -14,6 +14,9 @@ app = FastAPI()
 
 
 
+# ------------------------------------------------- API: Paths ---------------------------------------- #
+
+
 
 @app.get('/')
 def general_hit() -> JSONResponse:
@@ -45,7 +48,6 @@ def check_status() -> JSONResponse:
     })
 
     return response
-
 
 
 
